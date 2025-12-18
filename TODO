@@ -1,0 +1,2 @@
+apps ichida bir nechta app lar bo'lsa =>
+settings.py ga +( sys.path.append('apps'))
