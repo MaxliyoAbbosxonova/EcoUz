@@ -1,0 +1,34 @@
+services:
+  backend_service:
+    build: .
+    env_file:
+      - env/.env.prod
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres_service
+    command: >
+        sh -c "uv run python manage.py makemigrations &&
+        uv run python manage.py migrate &&
+        uv run python manage.py collectstatic --noinput &&
+        uv run python manage.py runserver 0.0.0.0:8000"
+                  
+
+  postgres_service:
+    image: postgres:alpine
+    environment:
+      - POSTGRES_PASSWORD=1
+      - POSTGRES_DB=open_shop
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  frontend_service:
+    build: .
+    ports:
+      - "3000:3000"
+
+
+volumes:
+  pg_data:

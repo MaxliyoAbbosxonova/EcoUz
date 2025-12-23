@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="uz">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Murojatlar - Ekologiya Portali</title>
+     <link rel="stylesheet" href="css/appeals.css">
+
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body><!-- Header -->
+  <header class="header">
+   <div class="header-content">
+    <div class="logo-section">
+     <div class="logo">
+       🌿
+     </div>
+     <div class="brand-info">
+      <h1>EkoUz</h1>
+      <div class="brand-tagline">
+       Fuqarolar murojatlari tizimi
+      </div>
+     </div>
+    </div><a href="index.html" class="back-button">← Bosh sahifa</a>
+   </div>
+  </header><!-- Main Container -->
+  <main class="main-container"><!-- Stats Overview -->
+   <div class="stats-overview" id="statsOverview" style="display: none;">
+    <div class="stat-box total">
+     <div class="stat-icon">
+      📊
+     </div>
+     <div class="stat-number" id="totalStat">
+      0
+     </div>
+     <div class="stat-label">
+      Jami murojatlar
+     </div>
+    </div>
+    <div class="stat-box processing">
+     <div class="stat-icon">
+      ⏳
+     </div>
+     <div class="stat-number" id="processingStat">
+      0
+     </div>
+     <div class="stat-label">
+      Jarayonda
+     </div>
+    </div>
+    <div class="stat-box completed">
+     <div class="stat-icon">
+      ✅
+     </div>
+     <div class="stat-number" id="completedStat">
+      0
+     </div>
+     <div class="stat-label">
+      Tugatildi
+     </div>
+    </div>
+   </div><!-- Filter Tabs -->
+  <div class="filter-tabs" id="filterTabs" style="display: none;"><button class="filter-tab active" data-filter="all"> 📋 Barcha murojatlar <span class="filter-count" id="countAll">0</span> </button> <button class="filter-tab" data-filter="processing"> ⏳ Jarayonda <span class="filter-count" id="countProcessing">0</span> </button> <button class="filter-tab" data-filter="completed"> ✅ Tugatildi <span class="filter-count" id="countCompleted">0</span> </button>
+   </div><!-- Search Section -->
+   <div class="search-section" id="searchSection" style="display: none;">
+    <div class="search-box"><span class="search-icon">🔍</span> <input type="text" class="search-input" id="searchInput" placeholder="Hudud, tuman yoki ism bo'yicha qidiring...">
+    </div>
+   </div><!-- Loading State -->
+   <div id="loading" class="loading">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">
+     Murojatlar yuklanmoqda...
+    </div>
+   </div><!-- Appeals Sections Container -->
+   <div id="appealsContainer"></div>
+  </main><!-- Footer -->
+  <footer class="footer">
+   <div class="footer-content">
+    <div class="footer-about">
+     <h3>EkoUz</h3>
+     <p>Atrof-muhitni muhofaza qilish, monitoring xizmatlari va ekologik maslahatlar. Barqaror rivojlanish va toza kelajak uchun professional yechimlar.</p>
+    </div>
+    <div class="footer-section">
+     <h4>Xizmatlar</h4>
+     <ul class="footer-links">
+      <li><a href="#appeals">Murojatlar</a></li>
+      <li><a href="#monitoring">Monitoring</a></li>
+      <li><a href="#education">Ta'lim</a></li>
+      <li><a href="#lab">Laboratoriya</a></li>
+     </ul>
+    </div>
+    <div class="footer-section">
+     <h4>Ma'lumot</h4>
+     <ul class="footer-links">
+      <li><a href="#about">Biz haqimizda</a></li>
+      <li><a href="#projects">Loyihalar</a></li>
+      <li><a href="#partners">Hamkorlar</a></li>
+      <li><a href="#news">Yangiliklar</a></li>
+     </ul>
+    </div>
+    <div class="footer-section">
+     <h4>Aloqa</h4>
+     <ul class="footer-links">
+      <li><a href="tel:+998711234567">+998 71 123-45-67</a></li>
+      <li><a href="mailto:info@ekoportal.uz">info@ekoportal.uz</a></li>
+      <li><a href="#location">Toshkent, O'zbekiston</a></li>
+     </ul>
+    </div>
+   </div>
+   <div class="footer-bottom">
+    <p>© 2024 EkoUz . Barcha huquqlar himoyalangan.</p>
+   </div>
+  </footer>
+  <script>
+        // Sample images
+        const sampleImages = [
+            'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800',
+            'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800',
+            'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800',
+            'https://images.unsplash.com/photo-1511497584788-876760111969?w=800',
+            'https://images.unsplash.com/photo-1518623001395-125242310d0c?w=800',
+            'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800'
+        ];
+
+        let allAppeals = [];
+        let currentFilter = 'all';
+
+        // Determine status
+        function getStatus(statusText) {
+            const lower = statusText.toLowerCase();
+            if (lower.includes('tugatil') || lower.includes('complet') || lower.includes('hal')) {
+                return 'completed';
+            }
+            return 'processing';
+        }
+
+        // Translate status
+        function translateStatus(status) {
+            return status === 'completed' ? 'Tugatildi' : 'Jarayonda';
+        }
+
+        // Get status icon
+        function getStatusIcon(status) {
+            return status === 'completed' ? '✅' : '⏳';
+        }
+
+        // Format date
+        function formatDate(dateString) {
+            if (!dateString) return '';
+            const date = new Date(dateString);
+            return date.toLocaleDateString('uz-UZ', { day: '2-digit', month: 'long', year: 'numeric' });
+        }
+
+        // Update statistics
+        function updateStatistics(data) {
+            const processing = data.filter(a => getStatus(a.status) === 'processing').length;
+            const completed = data.filter(a => getStatus(a.status) === 'completed').length;
+
+            document.getElementById('totalStat').textContent = data.length;
+            document.getElementById('processingStat').textContent = processing;
+            document.getElementById('completedStat').textContent = completed;
+
+            document.getElementById('countAll').textContent = data.length;
+            document.getElementById('countProcessing').textContent = processing;
+            document.getElementById('countCompleted').textContent = completed;
+
+            document.getElementById('statsOverview').style.display = 'grid';
+            document.getElementById('filterTabs').style.display = 'flex';
+            document.getElementById('searchSection').style.display = 'block';
+        }
+
+        // Create appeal card
+        function createAppealCard(appeal, index) {
+            const status = getStatus(appeal.status);
+            const statusText = translateStatus(status);
+            const statusIcon = getStatusIcon(status);
+            const imageUrl = appeal.image && appeal.image.url ? appeal.image.url : sampleImages[index % sampleImages.length];
+
+            return `
+                <div class="appeal-card" style="animation: fadeIn 0.5s ease ${index * 0.1}s both;">
+                    <div class="card-header">
+                        <div class="card-status status-${status}">
+                            ${statusIcon} ${statusText}
+                        </div>
+                        <div class="card-date">
+                            📅 ${formatDate(appeal.created_at) || 'Sana ko\'rsatilmagan'}
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-location">
+                            <div class="location-item">
+                                <div class="location-icon">📍</div>
+                                <div class="location-text">
+                                    <div class="location-label">Hudud</div>
+                                    <div class="location-value">${appeal.region_name || 'Ko\'rsatilmagan'}</div>
+                                </div>
+                            </div>
+                            ${appeal.district_name ? `
+                                <div class="location-item">
+                                    <div class="location-icon">🏘️</div>
+                                    <div class="location-text">
+                                        <div class="location-label">Tuman</div>
+                                        <div class="location-value">${appeal.district_name}</div>
+                                    </div>
+                                </div>
+                            ` : ''}
+                        </div>
+                        ${appeal.description ? `
+                            <div class="card-description">
+                                <div class="description-label">📝 Murojat mazmuni</div>
+                                ${appeal.description}
+                            </div>
+                        ` : ''}
+                    </div>
+
+                    <img src="${imageUrl}" alt="Murojat rasmi" class="card-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="image-placeholder" style="display:none;">
+                        <div class="placeholder-icon">🏞️</div>
+                        <div class="placeholder-text">Rasm yuklanmadi</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render appeals
+        function renderAppeals(filter = 'all', searchTerm = '') {
+            const container = document.getElementById('appealsContainer');
+
+            let filtered = filter === 'all' ? allAppeals :
+                          allAppeals.filter(a => getStatus(a.status) === filter);
+
+            // Apply search
+            if (searchTerm) {
+                filtered = filtered.filter(a => {
+                    const searchLower = searchTerm.toLowerCase();
+                    return (a.fullname && a.fullname.toLowerCase().includes(searchLower)) ||
+                           (a.region_name && a.region_name.toLowerCase().includes(searchLower)) ||
+                           (a.district_name && a.district_name.toLowerCase().includes(searchLower));
+                });
+            }
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">🔍</div>
+                        <h3 class="empty-title">Murojatlar topilmadi</h3>
+                        <p class="empty-text">Bu kategoriyada murojatlar mavjud emas</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Group by status
+            const processing = filtered.filter(a => getStatus(a.status) === 'processing');
+            const completed = filtered.filter(a => getStatus(a.status) === 'completed');
+
+            let html = '';
+
+            if (filter === 'all' || filter === 'processing') {
+                if (processing.length > 0) {
+                    html += `
+                        <div class="appeals-section">
+                            <div class="section-header">
+                                <h2 class="section-title">
+                                    ⏳ Jarayonda
+                                    <span class="section-count">${processing.length}</span>
+                                </h2>
+                            </div>
+                            <div class="appeals-grid">
+                                ${processing.map((a, i) => createAppealCard(a, i)).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+
+            if (filter === 'all' || filter === 'completed') {
+                if (completed.length > 0) {
+                    html += `
+                        <div class="appeals-section">
+                            <div class="section-header">
+                                <h2 class="section-title">
+                                    ✅ Tugatildi
+                                    <span class="section-count">${completed.length}</span>
+                                </h2>
+                            </div>
+                            <div class="appeals-grid">
+                                ${completed.map((a, i) => createAppealCard(a, i)).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+
+            container.innerHTML = html;
+        }
+
+        // Load appeals
+        function loadAppeals() {
+            const loading = document.getElementById('loading');
+            const container = document.getElementById('appealsContainer');
+
+            fetch('http://127.0.0.1:8000/api/v1/applications/')
+                .then(res => {
+                    if (!res.ok) throw new Error(`Server xatosi: ${res.status}`);
+                    return res.json();
+                })
+                .then(data => {
+                    loading.style.display = 'none';
+
+                    if (!data || data.length === 0) {
+                        container.innerHTML = `
+                            <div class="empty-state">
+                                <div class="empty-icon">📭</div>
+                                <h3 class="empty-title">Hozircha murojatlar yo'q</h3>
+                                <p class="empty-text">Hali hech qanday murojat qoldirilmagan</p>
+                            </div>
+                        `;
+                        return;
+                    }
+
+                    allAppeals = data;
+                    updateStatistics(data);
+                    renderAppeals('all');
+                })
+                .catch(err => {
+                    loading.style.display = 'none';
+                    container.innerHTML = `
+                        <div class="error-message">
+                            <div class="error-icon">⚠️</div>
+                            <h3 class="error-title">Ma'lumotlarni yuklashda xatolik</h3>
+                            <p class="error-text">
+                                Server bilan bog'lanishda muammo yuz berdi.<br>
+                                <strong>Xatolik:</strong> ${err.message}
+                            </p>
+                        </div>
+                    `;
+                });
+        }
+
+        // Filter tabs event
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('.filter-tab')) {
+                const tab = e.target.closest('.filter-tab');
+                const filter = tab.dataset.filter;
+
+                document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                currentFilter = filter;
+                renderAppeals(filter, document.getElementById('searchInput').value);
+            }
+        });
+
+        // Search event
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            renderAppeals(currentFilter, e.target.value);
+        });
+
+        // Add animation keyframe
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Load on page ready
+        document.addEventListener('DOMContentLoaded', loadAppeals);
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b0a0484e5c6dcc9',t:'MTc2NjE3OTk5OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

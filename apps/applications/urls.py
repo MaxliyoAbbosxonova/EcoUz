@@ -1,7 +1,10 @@
-from django.conf.urls.static import static
+from django.urls import path
 
-from root.settings import MEDIA_URL, MEDIA_ROOT
+from applications.views import ApplicationsListCreateAPIView, RegionsListCreateAPIView, DistrictsListCreateAPIView
 
-urlpatterns=[
+urlpatterns = [
+    path('applications/', ApplicationsListCreateAPIView.as_view(), name='applications-list'),
+    path('regions/', RegionsListCreateAPIView.as_view(), name='applications-list'),
+    path('districts/', DistrictsListCreateAPIView.as_view(), name='applications-list'),
 
-]+ static(MEDIA_URL, document_root=MEDIA_ROOT)
+]

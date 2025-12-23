@@ -1,0 +1,562 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+            height: 100%;
+            overflow-x: hidden;
+            background: #f8f9fa;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #2e7d32 0%, #43a047 100%);
+            padding: 20px 5%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 55px;
+            height: 55px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .brand-info h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 3px;
+        }
+
+        .brand-tagline {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .contact-info {
+            color: white;
+            text-align: right;
+        }
+
+        .contact-label {
+            font-size: 11px;
+            opacity: 0.8;
+            text-transform: uppercase;
+        }
+
+        .contact-value {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .login-mini-btn {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 8px;
+            color: white;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .login-mini-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.95), rgba(67, 160, 71, 0.95)),
+                        url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.03)"/></svg>') center/cover;
+            padding: 80px 5% 100px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 10px 25px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-title {
+            font-size: 58px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-description {
+            font-size: 22px;
+            max-width: 900px;
+            margin: 0 auto 50px;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-text {
+            font-size: 15px;
+            opacity: 0.9;
+        }
+
+        /* Main Section */
+        .main-section {
+            max-width: 1400px;
+            margin: -60px auto 0;
+            padding: 0 5% 80px;
+            position: relative;
+            z-index: 100;
+        }
+
+        /* Main Appeal Card - Very Prominent */
+        .main-appeal-card {
+            background: white;
+            border-radius: 30px;
+            padding: 60px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .main-appeal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #2e7d32, #43a047, #66bb6a, #81c784);
+        }
+
+        .main-appeal-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 35px 90px rgba(0, 0, 0, 0.2);
+        }
+
+        .appeal-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 35px;
+        }
+
+        .appeal-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            flex-shrink: 0;
+            box-shadow: 0 10px 25px rgba(46, 125, 50, 0.2);
+        }
+
+        .appeal-title-section h2 {
+            font-size: 42px;
+            font-weight: 800;
+            color: #1b5e20;
+            margin-bottom: 10px;
+        }
+
+        .appeal-badge {
+            display: inline-block;
+            padding: 8px 18px;
+            background: #e8f5e9;
+            color: #2e7d32;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .appeal-description {
+            font-size: 20px;
+            line-height: 1.8;
+            color: #424242;
+            margin-bottom: 40px;
+        }
+
+        .appeal-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 45px;
+        }
+
+        .feature-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 25px;
+            background: #f5f5f5;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: #e8f5e9;
+            transform: translateY(-5px);
+        }
+
+        .feature-card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #4caf50, #66bb6a);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2e7d32;
+            margin-bottom: 8px;
+        }
+
+        .feature-card-text {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .main-appeal-button {
+            width: 100%;
+            padding: 25px;
+            font-size: 22px;
+            font-weight: 700;
+            border: none;
+            border-radius: 18px;
+            cursor: pointer;
+            background: linear-gradient(135deg, #2e7d32, #43a047);
+            color: white;
+            box-shadow: 0 15px 40px rgba(46, 125, 50, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .main-appeal-button:hover {
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            box-shadow: 0 20px 50px rgba(46, 125, 50, 0.6);
+            transform: translateY(-3px);
+        }
+
+        .main-appeal-button:active {
+            transform: translateY(-1px);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .service-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+}
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .service-icon {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        .service-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2e7d32;
+            margin-bottom: 12px;
+        }
+
+        .service-text {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 25px;
+
+    flex-grow: 1;
+}
+
+        .service-button {
+            width: 100%;
+            padding: 14px;
+            font-size: 15px;
+            font-weight: 600;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            cursor: pointer;
+            background: white;
+            color: #555;
+            transition: all 0.3s ease;
+            margin-top: auto;
+        }
+
+        .service-button:hover {
+            border-color: #2e7d32;
+            color: #2e7d32;
+            background: #f5f5f5;
+        }
+
+        /* Additional Services */
+        .additional-services {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .add-service-card {
+            background: white;
+            border-radius: 18px;
+            padding: 35px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .add-service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .add-service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            flex-shrink: 0;
+        }
+
+        .add-service-content h4 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2e7d32;
+            margin-bottom: 8px;
+        }
+
+        .add-service-content p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+            padding: 60px 5% 40px;
+            color: white;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-about h3 {
+            font-size: 26px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .footer-about p {
+            font-size: 15px;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        .footer-section h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: #81c784;
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .appeal-features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-grid,
+            .additional-services {
+                grid-template-columns: 1fr;
+            }
+
+            .appeal-features {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 38px;
+            }
+
+            .hero-description {
+                font-size: 18px;
+            }
+
+            .main-appeal-card {
+                padding: 35px 25px;
+            }
+
+            .appeal-title-section h2 {
+                font-size: 32px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .header-right {
+                display: none;
+            }
+
+            .brand-info h1 {
+                font-size: 18px;
+            }
+        }
+
