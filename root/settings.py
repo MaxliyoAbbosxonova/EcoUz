@@ -34,8 +34,6 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -86,7 +84,7 @@ TEMPLATES = [
         },
     },
 ]
-
+ALLOWED_HOSTS = ['*']
 WSGI_APPLICATION = 'root.wsgi.application'
 
 # Database
@@ -314,6 +312,7 @@ JAZZMIN_SETTINGS = {
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'http://localhost:8000',
+
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True

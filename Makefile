@@ -37,6 +37,6 @@ front:
 know_3000:
 	 sudo lsof -i :3000
 off_port:
-	 sudo kill -9 11325
+	 sudo kill -9 7554
 
 
