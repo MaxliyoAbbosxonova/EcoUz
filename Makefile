@@ -17,7 +17,7 @@ convert_webp:
 	python manage.py convert_images_to_webp
 
 loaddata:
-	python3 manage.py loaddata applications regions districts
+	python3 manage.py loaddata results
 mig2:
 	docker compose exec -it backend_service sh -c 'uv run python3 manage.py makemigrations'
 	docker compose exec -it backend_service sh -c 'uv run python3 manage.py migrate'

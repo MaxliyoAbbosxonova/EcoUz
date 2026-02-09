@@ -1,0 +1,122 @@
+[
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$syk73WQljHeMSpVAxG5pAR$Lbwa0p0Lf5GhWvxS32FKa4mSBoO6v9x4f40HxEvd0S0=",
+      "last_login": "2026-02-09T16:49:13.130Z",
+      "is_superuser": true,
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2025-12-20T09:23:21.723Z",
+      "login": "admin",
+      "phone": "901001010",
+      "role": "ADMIN",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$n1CFHoOC9na432R0lHUtHd$9imcp3BkJrpp69fm+zv0O3GfJ1eGG88hjsb9haGEugs=",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-12-20T09:26:38.530Z",
+      "login": "Ekologiya vazirligi",
+      "phone": "911001010",
+      "role": "EXECUTOR",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$kePSNrhFGkTuS36N3bWvDE$82zSkP8sKamhi9r4H6c5Hpob+uQmmcKLkEminncA0eA=",
+      "last_login": null,
+      "is_superuser": true,
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2025-12-23T05:06:12.931Z",
+      "login": "elektr",
+      "phone": "933977090",
+      "role": "EXECUTOR",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$Dd1WJFDdRPsrMvYKHXM29y$yoRKc1IqXrfLdtC3YGW9E5Dpkojwb+MmjQvw1dZru/A=",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-01-02T20:16:05.542Z",
+      "login": "operator",
+      "phone": "901001011",
+      "role": "OPERATOR",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$Dd1WJFDdRPsrMvYKHXM29y$yoRKc1IqXrfLdtC3YGW9E5Dpkojwb+MmjQvw1dZru/A=",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-01-17T17:34:35.083Z",
+      "login": "admin2",
+      "phone": "string",
+      "role": "ADMIN",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$KW7JqRE33cYB8l8bRnrJzC$7LNPwKlBRKr+T1b3T+QWFY0QbTDvj+pzmhR1EYb+bm0=",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-01-17T17:45:53.978Z",
+      "login": "suv",
+      "phone": "955555555",
+      "role": "EXECUTOR",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]

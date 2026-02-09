@@ -1,9 +1,11 @@
-from django.core.management.base import BaseCommand
-from applications.models import Image, Application
-from PIL import Image as PilImage
-from io import BytesIO
-from django.core.files.base import ContentFile
 import os
+from io import BytesIO
+
+from applications.models import Application, Image
+from django.core.files.base import ContentFile
+from django.core.management.base import BaseCommand
+from PIL import Image as PilImage
+
 
 class Command(BaseCommand):
     help = "Convert all existing images to WEBP format"

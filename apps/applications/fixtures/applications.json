@@ -3,150 +3,499 @@
     "model": "applications.application",
     "pk": 1,
     "fields": {
-      "image": "products/2025/11/04/hp-pavilion-15.jpg",
-      "fullname": "Ali Tursunov",
-      "phone": "933977090",
+      "fullname": "Abdullayev Jamshid",
+      "phone": "901112233",
       "region": 1,
       "district": 1,
-      "description": "Shikoyat yo‘q, faqat maslahat so‘rab keldi",
-      "latitude": "41.299500",
-      "longitude": "69.240100",
-      "status": "IN_PROGRESS",
-    "created_at": "2025-11-04T09:05:00Z"}
+      "description": "Noqonuniy chiqindi tashlangan",
+      "latitude": 41.311081,
+      "longitude": 69.240562,
+      "status": "NEW",
+      "assigned_to": null,
+      "created_at": "2026-01-01T08:00:00Z"
+    }
   },
   {
     "model": "applications.application",
     "pk": 2,
     "fields": {
-      "image": "products/2025/11/04/hp-pavilion-15.jpg",
-      "fullname": "Laylo Karimova",
-      "phone": "901234567",
-      "region": 2,
+      "fullname": "Karimova Mohira",
+      "phone": "933221100",
+      "region": 1,
       "district": 2,
-      "description": "Ijtimoiy masala bo‘yicha murojaat",
-      "latitude": "39.654200",
-      "longitude": "66.959700",
-      "status": "COMPLETED",
-    "created_at": "2025-11-04T09:05:00Z"}
+      "description": "Daraxtlar kesilmoqda",
+      "latitude": 41.295512,
+      "longitude": 69.266312,
+      "status": "ASSIGNED",
+      "assigned_to": 2,
+      "created_at": "2026-01-01T09:00:00Z"
+    }
   },
   {
     "model": "applications.application",
     "pk": 3,
     "fields": {
-      "image": "products/2025/11/04/hp-pavilion-15.jpg",
-      "fullname": "Bobur Xo‘jayev",
-      "phone": "933112233",
-      "region": 1,
+      "fullname": "Islomov Bekzod",
+      "phone": "909876543",
+      "region": 2,
       "district": 3,
-      "description": "Texnik yordam so‘rab keldi",
-      "latitude": "41.327500",
-      "longitude": "69.281000",
-      "status": "IN_PROGRESS",
-    "created_at": "2025-11-04T09:05:00Z"}
+      "description": "Suv ifloslanishi",
+      "latitude": 40.998321,
+      "longitude": 71.672451,
+      "status": "DONE",
+      "assigned_to": 2,
+      "created_at": "2026-01-02T10:00:00Z"
+    }
   },
   {
     "model": "applications.application",
     "pk": 4,
     "fields": {
-      "image": "products/2025/11/04/hp-pavilion-15.jpg",
-      "fullname": "Gulbahor Ergasheva",
-      "phone": "933445566",
+      "fullname": "Qodirova Sevara",
+      "phone": "935551122",
       "region": 3,
       "district": 4,
-      "description": "Mahalla masalasi",
-      "latitude": "40.123400",
-      "longitude": "69.456700",
-      "status": "IN_PROGRESS",
-    "created_at": "2025-11-04T09:05:00Z"}
+      "description": "Atmosfera havosi ifloslangan",
+      "latitude": 39.774321,
+      "longitude": 64.428901,
+      "status": "REJECTED",
+      "assigned_to": 2,
+      "created_at": "2026-01-02T11:00:00Z"
+    }
   },
   {
     "model": "applications.application",
     "pk": 5,
     "fields": {
-      "image": "products/2025/11/04/hp-pavilion-15.jpg",
-      "fullname": "Javlon To‘raev",
-      "phone": "998998877",
-      "region": 2,
-      "district": 2,
-      "description": "Ish masalasi",
-      "latitude": "39.876500",
-      "longitude": "66.543200",
-      "status": "COMPLETED",
-    "created_at": "2025-11-04T09:05:00Z"}
+      "fullname": "Rustamov Dilshod",
+      "phone": "901234567",
+      "region": 4,
+      "district": 5,
+      "description": "Chiqindi yoqilmoqda",
+      "latitude": 40.123876,
+      "longitude": 67.823456,
+      "status": "NEW",
+      "assigned_to": null,
+      "created_at": "2026-01-03T08:30:00Z"
+    }
   },
   {
     "model": "applications.application",
     "pk": 6,
     "fields": {
-      "image": "products/2025/11/04/hp-pavilion-15.jpg",
-      "fullname": "Nigora Qodirova",
-      "phone": "933223344",
-      "region": 1,
-      "district": 1,
-      "description": "Texnik yordam so‘rab keldi",
-      "latitude": "41.320000",
-      "longitude": "69.250000",
-      "status": "IN_PROGRESS",
-    "created_at": "2025-11-04T09:05:00Z"}
+      "fullname": "Ahmedova Nilufar",
+      "phone": "977654321",
+      "region": 5,
+      "district": 6,
+      "description": "Daryo bo‘yida noqonuniy qurilish",
+      "latitude": 40.487654,
+      "longitude": 68.781234,
+      "status": "ASSIGNED",
+      "assigned_to": 2,
+      "created_at": "2026-01-03T09:30:00Z"
+    }
   },
   {
     "model": "applications.application",
     "pk": 7,
     "fields": {
-      "image": "products/2025/11/04/hp-pavilion-15.jpg",
-      "fullname": "Sardor Mirzaev",
-      "phone": "933556677",
-      "region": 3,
-      "district": 5,
-      "description": "Maslahat so‘rab keldi",
-      "latitude": "40.500000",
-      "longitude": "68.500000",
-      "status": "IN_PROGRESS",
-    "created_at": "2025-11-04T09:05:00Z"}
+      "fullname": "Tursunov Akmal",
+      "phone": "936669988",
+      "region": 1,
+      "district": 7,
+      "description": "Yer degradatsiyasi",
+      "latitude": 38.856432,
+      "longitude": 65.784321,
+      "status": "DONE",
+      "assigned_to": 2,
+      "created_at": "2026-01-04T10:00:00Z"
+    }
   },
   {
     "model": "applications.application",
     "pk": 8,
     "fields": {
-      "image": "products/2025/11/04/hp-pavilion-15.jpg",
-      "fullname": "Diyorxon Xolmirzaev",
-      "phone": "998334455",
+      "fullname": "Raximova Madina",
+      "phone": "990011223",
       "region": 2,
-      "district": 3,
-      "description": "Ijtimoiy masala",
-      "latitude": "39.750000",
-      "longitude": "66.900000",
-      "status": "COMPLETED",
-    "created_at": "2025-11-04T09:05:00Z"}
+      "district": 8,
+      "description": "Yashil hudud buzilmoqda",
+      "latitude": 39.658743,
+      "longitude": 66.975432,
+      "status": "NEW",
+      "assigned_to": null,
+      "created_at": "2026-01-04T11:00:00Z"
+    }
   },
   {
     "model": "applications.application",
     "pk": 9,
     "fields": {
-      "image": "products/2025/11/04/hp-pavilion-15.jpg",
-      "fullname": "Malika Rustamova",
-      "phone": "933778899",
-      "region": 1,
-      "district": 4,
-      "description": "Shaxsiy murojaat",
-      "latitude": "41.310000",
-      "longitude": "69.270000",
-      "status": "IN_PROGRESS",
-    "created_at": "2025-11-04T09:05:00Z"}
+      "fullname": "Sodiqov Javlon",
+      "phone": "941112233",
+      "region": 3,
+      "district": 9,
+      "description": "Qum qazib olish",
+      "latitude": 40.765432,
+      "longitude": 64.987654,
+      "status": "ASSIGNED",
+      "assigned_to": 2,
+      "created_at": "2026-01-05T08:00:00Z"
+    }
   },
   {
     "model": "applications.application",
     "pk": 10,
     "fields": {
-      "image": "products/2025/11/04/hp-pavilion-15.jpg",
-      "fullname": "Otabek Nurmatov",
-      "phone": "998667788",
+      "fullname": "Yuldasheva Zilola",
+      "phone": "932221144",
+      "region": 4,
+      "district": 10,
+      "description": "Chiqindi to‘planib qolgan",
+      "latitude": 41.012345,
+      "longitude": 67.123456,
+      "status": "DONE",
+      "assigned_to": 2,
+      "created_at": "2026-01-05T09:00:00Z"
+    }
+  },
+
+  {
+    "model": "applications.application",
+    "pk": 11,
+    "fields": {
+      "fullname": "Nazarov Ulug‘bek",
+      "phone": "955667788",
+      "region": 5,
+      "district": 1,
+      "description": "Suv quvuri oqmoqda",
+      "latitude": 40.654321,
+      "longitude": 68.234567,
+      "status": "NEW",
+      "assigned_to": null,
+      "created_at": "2026-01-06T08:00:00Z"
+    }
+  },
+  {
+    "model": "applications.application",
+    "pk": 12,
+    "fields": {
+      "fullname": "Saidova Dildora",
+      "phone": "931234999",
+      "region": 1,
+      "district": 2,
+      "description": "Daraxtlar sug‘orilmayapti",
+      "latitude": 41.332211,
+      "longitude": 69.221144,
+      "status": "ASSIGNED",
+      "assigned_to": 2,
+      "created_at": "2026-01-06T09:00:00Z"
+    }
+  },
+
+  {
+    "model": "applications.application",
+    "pk": 13,
+    "fields": {
+      "fullname": "Rahmatov Sherzod",
+      "phone": "907778899",
+      "region": 2,
+      "district": 3,
+      "description": "Noqonuniy ov",
+      "latitude": 40.987654,
+      "longitude": 71.345678,
+      "status": "REJECTED",
+      "assigned_to": 2,
+      "created_at": "2026-01-07T08:00:00Z"
+    }
+  },
+
+  {
+    "model": "applications.application",
+    "pk": 14,
+    "fields": {
+      "fullname": "Usmonova Mohinur",
+      "phone": "998887766",
       "region": 3,
       "district": 4,
-      "description": "Texnik masala",
-      "latitude": "40.200000",
-      "longitude": "68.700000",
-      "status": "COMPLETED",
-    "created_at": "2025-11-04T09:05:00Z"}
+      "description": "O‘rmon hududi zarar ko‘rgan",
+      "latitude": 39.876543,
+      "longitude": 64.654321,
+      "status": "DONE",
+      "assigned_to": 2,
+      "created_at": "2026-01-07T09:00:00Z"
+    }
+  },
+
+  {
+    "model": "applications.application",
+    "pk": 15,
+    "fields": {
+      "fullname": "Aliyev Shohruh",
+      "phone": "934445566",
+      "region": 4,
+      "district": 5,
+      "description": "Chiqindi konteynerlari yetishmaydi",
+      "latitude": 40.222333,
+      "longitude": 67.555666,
+      "status": "NEW",
+      "assigned_to": null,
+      "created_at": "2026-01-08T08:00:00Z"
+    }
+  },
+
+  {
+    "model": "applications.application",
+    "pk": 16,
+    "fields": {
+      "fullname": "Xolmatova Diyora",
+      "phone": "977001122",
+      "region": 5,
+      "district": 6,
+      "description": "Chiqindi poligoni muammosi",
+      "latitude": 40.444555,
+      "longitude": 68.777888,
+      "status": "ASSIGNED",
+      "assigned_to": 2,
+      "created_at": "2026-01-08T09:00:00Z"
+    }
+  },
+
+  {
+    "model": "applications.application",
+    "pk": 17,
+    "fields": {
+      "fullname": "Mamatov Aziz",
+      "phone": "911223344",
+      "region": 1,
+      "district": 7,
+      "description": "Suv havzasi iflos",
+      "latitude": 41.111222,
+      "longitude": 69.333444,
+      "status": "DONE",
+      "assigned_to": 2,
+      "created_at": "2026-01-09T08:00:00Z"
+    }
+  },
+
+  {
+    "model": "applications.application",
+    "pk": 18,
+    "fields": {
+      "fullname": "Sobirova Maftuna",
+      "phone": "936667788",
+      "region": 2,
+      "district": 8,
+      "description": "Qurilish chiqindilari",
+      "latitude": 40.876543,
+      "longitude": 71.123456,
+      "status": "NEW",
+      "assigned_to": null,
+      "created_at": "2026-01-09T09:00:00Z"
+    }
+  },
+
+  {
+    "model": "applications.application",
+    "pk": 19,
+    "fields": {
+      "fullname": "Juraev Sardor",
+      "phone": "902223344",
+      "region": 3,
+      "district": 9,
+      "description": "Daraxt ildizlari shikastlangan",
+      "latitude": 39.998877,
+      "longitude": 64.556677,
+      "status": "ASSIGNED",
+      "assigned_to": 2,
+      "created_at": "2026-01-10T08:00:00Z"
+    }
+  },
+
+  {
+    "model": "applications.application",
+    "pk": 20,
+    "fields": {
+      "fullname": "Ergasheva Gulnoza",
+      "phone": "944556677",
+      "region": 4,
+      "district": 10,
+      "description": "Noqonuniy chiqindi poligoni",
+      "latitude": 40.333444,
+      "longitude": 67.666777,
+      "status": "DONE",
+      "assigned_to": 2,
+      "created_at": "2026-01-10T09:00:00Z"
+    }
+  },
+
+  {
+    "model": "applications.application",
+    "pk": 21,
+    "fields": {
+      "fullname": "Qosimov Doniyor",
+      "phone": "901119988",
+      "region": 5,
+      "district": 1,
+      "description": "Sanoat chiqindilari",
+      "latitude": 40.555666,
+      "longitude": 68.888999,
+      "status": "REJECTED",
+      "assigned_to": 2,
+      "created_at": "2026-01-11T08:00:00Z"
+    }
+  },
+
+  {
+    "model": "applications.application",
+    "pk": 22,
+    "fields": {
+      "fullname": "Abdurahmonova Lola",
+      "phone": "977889900",
+      "region": 1,
+      "district": 2,
+      "description": "Yashil hudud yetishmasligi",
+      "latitude": 41.221133,
+      "longitude": 69.332244,
+      "status": "NEW",
+      "assigned_to": null,
+      "created_at": "2026-01-11T09:00:00Z"
+    }
+  },
+
+  {
+    "model": "applications.application",
+    "pk": 23,
+    "fields": {
+      "fullname": "Hamdamov Alisher",
+      "phone": "933445566",
+      "region": 2,
+      "district": 3,
+      "description": "Noqonuniy chiqindi tashlash",
+      "latitude": 40.765123,
+      "longitude": 71.987654,
+      "status": "ASSIGNED",
+      "assigned_to": 2,
+      "created_at": "2026-01-12T08:00:00Z"
+    }
+  },
+
+  {
+    "model": "applications.application",
+    "pk": 24,
+    "fields": {
+      "fullname": "Shodieva Kamola",
+      "phone": "955443322",
+      "region": 3,
+      "district": 4,
+      "description": "Havo ifloslanishi",
+      "latitude": 39.887766,
+      "longitude": 64.334455,
+      "status": "DONE",
+      "assigned_to": 2,
+      "created_at": "2026-01-12T09:00:00Z"
+    }
+  },
+
+  {
+    "model": "applications.application",
+    "pk": 25,
+    "fields": {
+      "fullname": "Mirzayev Bobur",
+      "phone": "911998877",
+      "region": 4,
+      "district": 5,
+      "description": "Chiqindi vaqtida olib ketilmayapti",
+      "latitude": 40.111222,
+      "longitude": 67.444555,
+      "status": "NEW",
+      "assigned_to": null,
+      "created_at": "2026-01-13T08:00:00Z"
+    }
+  },
+
+  {
+    "model": "applications.application",
+    "pk": 26,
+    "fields": {
+      "fullname": "Rasulova Shaxnoza",
+      "phone": "977665544",
+      "region": 5,
+      "district": 6,
+      "description": "Suv manbasi iflos",
+      "latitude": 40.666777,
+      "longitude": 68.999111,
+      "status": "ASSIGNED",
+      "assigned_to": 2,
+      "created_at": "2026-01-13T09:00:00Z"
+    }
+  },
+
+  {
+    "model": "applications.application",
+    "pk": 27,
+    "fields": {
+      "fullname": "To‘xtayev Otabek",
+      "phone": "903334455",
+      "region": 1,
+      "district": 7,
+      "description": "Daraxtlar kesilgan",
+      "latitude": 41.555666,
+      "longitude": 69.777888,
+      "status": "DONE",
+      "assigned_to": 2,
+      "created_at": "2026-01-14T08:00:00Z"
+    }
+  },
+
+  {
+    "model": "applications.application",
+    "pk": 28,
+    "fields": {
+      "fullname": "Usmonova Rayhona",
+      "phone": "944332211",
+      "region": 2,
+      "district": 8,
+      "description": "Noqonuniy qurilish chiqindilari",
+      "latitude": 40.999888,
+      "longitude": 71.222111,
+      "status": "NEW",
+      "assigned_to": null,
+      "created_at": "2026-01-14T09:00:00Z"
+    }
+  },
+
+  {
+    "model": "applications.application",
+    "pk": 29,
+    "fields": {
+      "fullname": "Xudoyberdiyev Elyor",
+      "phone": "931111222",
+      "region": 3,
+      "district": 9,
+      "description": "Qum qazish ishlari",
+      "latitude": 39.666555,
+      "longitude": 64.222111,
+      "status": "ASSIGNED",
+      "assigned_to": 2,
+      "created_at": "2026-01-15T08:00:00Z"
+    }
+  },
+
+  {
+    "model": "applications.application",
+    "pk": 30,
+    "fields": {
+      "fullname": "Nasimova Feruza",
+      "phone": "990000111",
+      "region": 4,
+      "district": 10,
+      "description": "Ekologik me’yorlar buzilgan",
+      "latitude": 40.777666,
+      "longitude": 67.888999,
+      "status": "DONE",
+      "assigned_to": 2,
+      "created_at": "2026-01-15T09:00:00Z"
+    }
   }
 ]

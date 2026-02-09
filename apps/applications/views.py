@@ -1,17 +1,25 @@
+from applications.models import Application, District, Highlight, Region, Result
+from applications.permissions import IsExecutor, IsOperator
+from applications.serializers import (
+    ApplicationModelSerializer,
+    DistrictModelSerializer,
+    HighlightModelSerializer,
+    OperatorAssignModelSerializer,
+    RegionModelSerializer,
+    ResultModelSerializer,
+)
 from drf_spectacular.utils import extend_schema
 from rest_framework import status
-from rest_framework.decorators import action
-from rest_framework.exceptions import PermissionDenied
-from rest_framework.generics import ListCreateAPIView, ListAPIView, RetrieveUpdateAPIView, RetrieveUpdateDestroyAPIView
-from rest_framework.parsers import MultiPartParser, FormParser
-from rest_framework.permissions import IsAuthenticated, IsAdminUser
+from rest_framework.generics import (
+    ListAPIView,
+    ListCreateAPIView,
+    RetrieveUpdateAPIView,
+    RetrieveUpdateDestroyAPIView,
+)
+from rest_framework.parsers import FormParser, MultiPartParser
+from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
-from applications.models import Application, Region, District, Highlight, Result
-from applications.permissions import IsOperator, IsExecutor
-from applications.serializers import ApplicationModelSerializer, RegionModelSerializer, DistrictModelSerializer, \
-    OperatorAssignModelSerializer, HighlightModelSerializer, ResultModelSerializer
 
 
 @extend_schema(tags=['Operator Assignment'])
@@ -70,7 +78,6 @@ class ResultListCreateAPIView(APIView):
         application.save(update_fields=['status'])
         return Response(ResultModelSerializer(result).data, status=201)
 
-
     def queryset(self):
         user = self.request.user
         return Result.objects.filter(application__assigned_to=user).order_by('created_at')
@@ -87,7 +94,7 @@ class ResultRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
 
 
 class ApplicationsListCreateAPIView(ListCreateAPIView):
-    queryset = Application.objects.all().order_by('-created_at')
+    queryset = Application.objects.all().order_by('created_at')
     serializer_class = ApplicationModelSerializer
     parser_classes = (MultiPartParser, FormParser)
 

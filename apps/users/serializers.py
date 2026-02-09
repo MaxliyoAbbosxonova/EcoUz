@@ -6,7 +6,6 @@ from rest_framework.exceptions import ValidationError
 from rest_framework.fields import CharField, IntegerField
 from rest_framework.serializers import ModelSerializer, Serializer
 from rest_framework_simplejwt.tokens import RefreshToken
-
 from users.models import User
 
 
@@ -105,4 +104,3 @@ class ExecutorListModelSerializer(ModelSerializer):
     class Meta:
         model = User
         fields = ("id", "login", "role")
-

@@ -1,9 +1,6 @@
-from rest_framework.permissions import BasePermission
-
-from rest_framework.permissions import BasePermission
 import jwt
 from django.conf import settings
-
+from rest_framework.permissions import BasePermission
 from users.models import User
 
 
@@ -35,6 +32,7 @@ class IsOperator(BasePermission):
 
         except (jwt.ExpiredSignatureError, jwt.DecodeError, User.DoesNotExist):
             return False
+
 
 class IsExecutor(BasePermission):
     def has_permission(self, request, view):

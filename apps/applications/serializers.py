@@ -1,10 +1,10 @@
 import re
 
 from rest_framework.exceptions import ValidationError
-from rest_framework.fields import SerializerMethodField, DecimalField
+from rest_framework.fields import DecimalField, SerializerMethodField
 from rest_framework.serializers import ModelSerializer
 
-from .models import Application, Region, District, Highlight, Result
+from .models import Application, District, Highlight, Region, Result
 
 
 class ApplicationModelSerializer(ModelSerializer):
@@ -89,15 +89,8 @@ class HighlightModelSerializer(ModelSerializer):
         model = Highlight
         fields = ('id', 'name', 'image', 'created_at')
 
-#
-# class ImagesModelSerializer(ModelSerializer):
-#     class Meta:
-#         model = Image
-#         fields = ("id", "image","result")
-
 
 class ResultModelSerializer(ModelSerializer):
-
     class Meta:
         model = Result
         fields = "__all__"

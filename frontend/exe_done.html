@@ -1404,13 +1404,13 @@
             }
 
             container.innerHTML = allResults.map(result => {
-                const app = allApplications.find(a => a.id === result.applications);
+                const app = allApplications.find(a => a.id === result.application);
                 return `
                     <div class="result-card">
                         <div class="result-header">
                             <div class="result-app-info">
-                                <div class="result-app-name">${app ? app.phone : 'Noma\'lum'}</div>
-                                <div class="result-date">���� ${formatDate(result.created_at)}</div>
+                                <div class="result-app-name">${app ? app.fullname : 'Noma\'lum'}</div>
+                                <div class="result-date"> ${formatDate(result.created_at)}</div>
                             </div>
                         </div>
                         ${result.description ? `
@@ -1418,15 +1418,28 @@
                                 <strong>Natija:</strong> ${result.description}
                             </div>
                         ` : ''}
-                        ${result.images && result.images.length > 0 ? `
-                            <div class="result-images">
-                                ${result.images.map(img => `
-                                    <img src="${img.image}" alt="Natija rasmi" class="result-image"
-                                        onclick="window.open('${img.image}', '_blank')" loading="lazy"
-                                        onerror="this.style.display='none'">
-                                `).join('')}
-                            </div>
-                        ` : ''}
+                        <div class="result-images">
+    ${app && app.image ? `
+        <img
+            src="${app.image}"
+            alt="Application rasmi"
+            class="result-image"
+            onclick="window.open('${app.image}', '_blank')"
+            loading="lazy"
+            onerror="this.style.display='none'">
+    ` : ''}
+
+    ${result.image ? `
+        <img
+            src="${result.image}"
+            alt="Result rasmi"
+            class="result-image"
+            onclick="window.open('${result.image}', '_blank')"
+            loading="lazy"
+            onerror="this.style.display='none'">
+    ` : ''}
+</div>
+
                     </div>
                 `;
             }).join('');

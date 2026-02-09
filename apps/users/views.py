@@ -1,17 +1,18 @@
-from attr.filters import exclude
-from drf_spectacular.utils import extend_schema
-from rest_framework.generics import ListCreateAPIView, RetrieveAPIView
-from rest_framework.permissions import IsAdminUser
-
 from applications.permissions import IsOperator
-from users.models import User
-from users.serializers import (UserModelSerializer, SendSmsCodeSerializer, ChangePasswordSerializer,
-                               LoginModelSerializer, ExecutorListModelSerializer)
-from users.utils import random_code, send_sms_code, check_sms_code
-from rest_framework.views import APIView
-from rest_framework.response import Response
+from drf_spectacular.utils import extend_schema
 from rest_framework import status
-
+from rest_framework.generics import ListCreateAPIView, RetrieveAPIView
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from users.models import User
+from users.serializers import (
+    ChangePasswordSerializer,
+    ExecutorListModelSerializer,
+    LoginModelSerializer,
+    SendSmsCodeSerializer,
+    UserModelSerializer,
+)
+from users.utils import check_sms_code, random_code, send_sms_code
 
 
 # Create your views here.
@@ -38,6 +39,7 @@ class LoginApiView(APIView):
             status=status.HTTP_200_OK
         )
 
+
 @extend_schema(tags=['Users'])
 class SendCodeAPIView(APIView):
     serializer_class = SendSmsCodeSerializer
@@ -59,6 +61,7 @@ class SendCodeAPIView(APIView):
                 status=429
             )
         return Response({"message": "send sms code"})
+
 
 @extend_schema(tags=['Users'])
 class ChangePasswordAPIView(APIView):
@@ -82,6 +85,7 @@ class ChangePasswordAPIView(APIView):
 class ExecutorListAPIView(ListCreateAPIView):
     serializer_class = ExecutorListModelSerializer
     permission_classes = [IsOperator]
+
     def get_queryset(self):
         return User.objects.filter(role="EXECUTOR")
 
@@ -89,5 +93,6 @@ class ExecutorListAPIView(ListCreateAPIView):
 class ExecutorRetrieveAPIView(RetrieveAPIView):
     serializer_class = ExecutorListModelSerializer
     permission_classes = [IsOperator]
+
     def get_queryset(self):
         return User.objects.filter(role="EXECUTOR")

@@ -1,5 +1,6 @@
 from django.contrib.auth.models import UserManager as DjangoUserManager
 
+
 class UserManager(DjangoUserManager):
 
     def create_user(self, login="tashkilot nomi", phone="933977090", password=None, **extra_fields):

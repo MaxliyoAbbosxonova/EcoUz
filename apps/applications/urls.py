@@ -1,9 +1,16 @@
+from applications.views import (
+    ApplicationsListCreateAPIView,
+    DistrictsListCreateAPIView,
+    ExecutorApplicationDetailAPIView,
+    ExecutorApplicationListAPIView,
+    HighlightListCreateAPIView,
+    OperatorApplicationDetailAPIView,
+    OperatorApplicationListAPIView,
+    RegionsListCreateAPIView,
+    ResultListCreateAPIView,
+    ResultRetrieveUpdateDestroyAPIView,
+)
 from django.urls import path
-
-from applications.views import ApplicationsListCreateAPIView, RegionsListCreateAPIView, DistrictsListCreateAPIView, \
-    OperatorApplicationListAPIView, OperatorApplicationDetailAPIView, ExecutorApplicationListAPIView, \
-    HighlightListCreateAPIView, ResultRetrieveUpdateDestroyAPIView, ResultListCreateAPIView,\
-    ExecutorApplicationDetailAPIView
 
 urlpatterns = [
     path('applications/', ApplicationsListCreateAPIView.as_view(), name='applications-list'),
@@ -16,7 +23,8 @@ urlpatterns = [
          name='operator-application-detail'),
 
     path('executor/applications/', ExecutorApplicationListAPIView.as_view(), name='executor-applications-list'),
-    path('executor/applications/<int:pk>', ExecutorApplicationDetailAPIView.as_view(),name='executor-application-detail'),
+    path('executor/applications/<int:pk>', ExecutorApplicationDetailAPIView.as_view(),
+         name='executor-application-detail'),
 
     path('results/', ResultListCreateAPIView.as_view(), name='results-list'),
     path('results/<int:pk>', ResultRetrieveUpdateDestroyAPIView.as_view(), name='results-list'),

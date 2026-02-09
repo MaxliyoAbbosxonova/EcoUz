@@ -7,15 +7,15 @@ from users.models.managers import UserManager
 
 class User(AbstractUser):
     class Role(TextChoices):
-        ADMIN="ADMIN","admin"
+        ADMIN = "ADMIN", "admin"
         OPERATOR = "OPERATOR", "main"
         EXECUTOR = "EXECUTOR", "executor"
 
     username = None
     UserManager()
     login = CharField(max_length=150, unique=True)
-    phone = CharField(_('Telefon raqam'),max_length=13, unique=True)
-    role=CharField(max_length=11,choices=Role.choices,default=Role.EXECUTOR)
+    phone = CharField(_('Telefon raqam'), max_length=13, unique=True)
+    role = CharField(max_length=11, choices=Role.choices, default=Role.EXECUTOR)
 
     USERNAME_FIELD = "login"
     REQUIRED_FIELDS = ["phone"]

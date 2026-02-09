@@ -3,10 +3,11 @@ from django.contrib.auth.admin import UserAdmin
 
 from .models import User
 
+
 @admin.register(User)
 class UserAdmin(UserAdmin):
     model = User
-    list_display = ("login", "phone", "is_staff", "is_active")
+    list_display = ('id', "login", "phone", "is_staff", "is_active")
     list_filter = ("is_staff", "is_active")
 
     ordering = ("login",)

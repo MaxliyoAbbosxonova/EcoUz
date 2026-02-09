@@ -1,0 +1,92 @@
+[
+  {
+    "model": "applications.result",
+    "pk": 1,
+    "fields": {
+      "application": 3,
+      "description": "Muammo joyiga chiqildi, suv ifloslanishi bartaraf etildi.",
+      "image": null,
+      "created_at": "2026-01-02T15:30:00Z"
+    }
+  },
+  {
+    "model": "applications.result",
+    "pk": 2,
+    "fields": {
+      "application": 7,
+      "description": "Yer degradatsiyasi holati tekshirilib, tiklash ishlari boshlandi.",
+      "image": null,
+      "created_at": "2026-01-04T16:00:00Z"
+    }
+  },
+  {
+    "model": "applications.result",
+    "pk": 3,
+    "fields": {
+      "application": 10,
+      "description": "Chiqindilar olib ketildi, hudud tozalandi.",
+      "image": null,
+      "created_at": "2026-01-05T17:20:00Z"
+    }
+  },
+  {
+    "model": "applications.result",
+    "pk": 4,
+    "fields": {
+      "application": 14,
+      "description": "O‘rmon hududida noqonuniy kesish holati to‘xtatildi.",
+      "image": null,
+      "created_at": "2026-01-07T14:45:00Z"
+    }
+  },
+  {
+    "model": "applications.result",
+    "pk": 5,
+    "fields": {
+      "application": 17,
+      "description": "Suv havzasi tozalandi, iflos manba yopildi.",
+      "image": null,
+      "created_at": "2026-01-09T13:10:00Z"
+    }
+  },
+  {
+    "model": "applications.result",
+    "pk": 6,
+    "fields": {
+      "application": 20,
+      "description": "Noqonuniy chiqindi poligoni yopildi va chiqindilar olib chiqildi.",
+      "image": null,
+      "created_at": "2026-01-10T16:40:00Z"
+    }
+  },
+  {
+    "model": "applications.result",
+    "pk": 7,
+    "fields": {
+      "application": 24,
+      "description": "Havo ifloslanishiga sabab bo‘lgan manba bartaraf etildi.",
+      "image": null,
+      "created_at": "2026-01-12T15:00:00Z"
+    }
+  },
+  {
+    "model": "applications.result",
+    "pk": 8,
+    "fields": {
+      "application": 27,
+      "description": "Kesilgan daraxtlar o‘rniga yangi ko‘chatlar ekildi.",
+      "image": null,
+      "created_at": "2026-01-14T14:30:00Z"
+    }
+  },
+  {
+    "model": "applications.result",
+    "pk": 9,
+    "fields": {
+      "application": 30,
+      "description": "Ekologik me’yorlar buzilishi bo‘yicha chora ko‘rildi.",
+      "image": null,
+      "created_at": "2026-01-15T16:10:00Z"
+    }
+  }
+]
