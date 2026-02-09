@@ -4,18 +4,17 @@ mig:
 
 sup:
 	python manage.py createsuperuser
-
 run:
 	python manage.py runserver
 
 msg:
-	python manage.py makemessages -l uz -l en
-
-convert_webp:
-	python manage.py convert_images_to_webp
+	python manage.py makemessages -l en -l ru -l uz
 
 compile_msg:
 	python manage.py compilemessages -i .venv
+
+convert_webp:
+	python manage.py convert_images_to_webp
 
 loaddata:
 	python3 manage.py loaddata applications regions districts
@@ -31,7 +30,13 @@ isort:
 
 docker:
 	sudo systemctl stop redis
-	docker start postgres_container redis_container
+	docker start  postgres_container redis_container
 
 front:
 	python3 -m http.server 3000
+know_3000:
+	 sudo lsof -i :3000
+off_port:
+	 sudo kill -9 11325
+
+

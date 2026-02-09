@@ -1,38 +1,5 @@
-function openAppeal() {
-            const message = `📝 MUROJAT TIZIMI
 
-Murojatingizni qoldiring:
 
-✓ Ekologik muammolar haqida xabar berish
-✓ Takliflar va shikoyatlar yuborish
-✓ Foto/video materiallar biriktirish
-✓ Holat kuzatuvi va SMS xabarnomalar
-✓ 24 soat ichida dastlabki javob
-✓ 3 kun ichida to'liq tahlil
-
-Sizning murojatingiz maxfiy va professional ko'rib chiqiladi!
-
-Tizimga o'tmoqdasiz...`;
-
-            alert(message);
-        }
-
-        function openLogin() {
-            const message = `🔐 DAVLAT TASHKILOTLARI KIRISHI
-
-Bu bo'lim faqat davlat tashkilotlari va hamkor idoralar uchun mo'ljallangan.
-
-Kirish uchun:
-✓ Tashkilot logini
-✓ Maxsus parol
-✓ Ikki bosqichli tasdiqlash
-
-Davlat tashkilotlari uchun maxsus dashboard, monitoring va hisobotlar tizimi mavjud.
-
-Kirish tizimiga o'tmoqdasiz...`;
-
-            alert(message);
-        }
 
 function showAppeals() {
     const modal = document.getElementById("appealsModal");
@@ -122,7 +89,7 @@ function closeAppeals() {
             });
         });
 function loadAppeals() {
-    fetch("http://127.0.0.1:8000/api/v1/applications/")
+    fetch("http://127.0.0.1:8000/api/v1/")
         .then(res => res.json())
         .then(data => {
             const box = document.getElementById("appeals");

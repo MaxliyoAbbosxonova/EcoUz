@@ -1,0 +1,1508 @@
+<!doctype html>
+<html lang="uz">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ijrochi Paneli - Ekologiya Portali</title>
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+        }
+
+        body {
+            background: #f8f9fa;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #2e7d32 0%, #43a047 100%);
+            padding: 20px 5%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 55px;
+            height: 55px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .brand-info h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 3px;
+        }
+
+        .brand-tagline {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 10px 20px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .user-icon {
+            font-size: 24px;
+        }
+
+        .user-details {
+            color: white;
+        }
+
+        .user-name {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .user-role {
+            font-size: 11px;
+            opacity: 0.9;
+        }
+
+        /* Main Container */
+        .main-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 40px 5%;
+        }
+
+        /* Tabs */
+        .tabs-container {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            padding: 12px 28px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: white;
+            color: #616161;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tab-button:hover {
+            border-color: #2e7d32;
+            color: #2e7d32;
+        }
+
+        .tab-button.active {
+            background: #2e7d32;
+            color: white;
+            border-color: #2e7d32;
+        }
+
+        .tab-count {
+            background: rgba(0, 0, 0, 0.1);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .tab-button.active .tab-count {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        /* Applications Grid */
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 24px;
+        }
+
+        /* Application Card */
+        .app-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .app-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-color: #2e7d32;
+        }
+
+        .app-card-header {
+            padding: 20px;
+            background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .app-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .status-new {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fde68a;
+        }
+
+        .status-assigned {
+            background: #dbeafe;
+            color: #1e40af;
+            border: 1px solid #bfdbfe;
+        }
+
+        .status-accepted {
+            background: #e0e7ff;
+            color: #4338ca;
+            border: 1px solid #c7d2fe;
+        }
+
+        .status-done {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+
+        .app-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #212121;
+            margin-bottom: 8px;
+        }
+
+        .app-date {
+            font-size: 12px;
+            color: #757575;
+        }
+
+        .app-card-body {
+            padding: 20px;
+        }
+
+        .app-location {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .location-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 3px solid #2e7d32;
+        }
+
+        .location-icon {
+            font-size: 16px;
+        }
+
+        .location-text {
+            flex: 1;
+        }
+
+        .location-label {
+            font-size: 10px;
+            color: #757575;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 3px;
+        }
+
+        .location-value {
+            font-size: 13px;
+            color: #212121;
+            font-weight: 600;
+        }
+
+        .app-description {
+            background: #f5f5f5;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #424242;
+            border-left: 3px solid #2e7d32;
+            margin-top: 12px;
+            max-height: 100px;
+            overflow-y: auto;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            padding: 24px 30px;
+            border-bottom: 2px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2e7d32;
+        }
+
+        .modal-close {
+            background: rgba(0, 0, 0, 0.1);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(0, 0, 0, 0.2);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .detail-section {
+            margin-bottom: 24px;
+        }
+
+        .detail-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #757575;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .detail-content {
+            background: #f8fafc;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212121;
+            border-left: 4px solid #2e7d32;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .detail-item {
+            background: #f8fafc;
+            padding: 14px;
+            border-radius: 8px;
+            border-left: 4px solid #2e7d32;
+        }
+
+        .detail-item-label {
+            font-size: 11px;
+            color: #757575;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .detail-item-value {
+            font-size: 15px;
+            font-weight: 600;
+            color: #212121;
+        }
+
+        .modal-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-top: 12px;
+        }
+
+        .modal-actions {
+            padding: 20px 30px;
+            border-top: 2px solid #e0e0e0;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: #2e7d32;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1b5e20;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+        }
+
+        .btn-success {
+            background: #43a047;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #2e7d32;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(67, 160, 71, 0.3);
+        }
+
+        .btn-secondary {
+            background: #6b7280;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #4b5563;
+        }
+
+        .btn-map {
+            background: #dc2626;
+            color: white;
+        }
+
+        .btn-map:hover {
+            background: #b91c1c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+        }
+
+        .btn-telegram {
+            background: #0088cc;
+            color: white;
+        }
+
+        .btn-telegram:hover {
+            background: #006699;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 136, 204, 0.3);
+        }
+
+        /* Result Form */
+        .result-form {
+            display: none;
+            margin-top: 24px;
+            padding: 24px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 2px solid #2e7d32;
+        }
+
+        .result-form.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #212121;
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #2e7d32;
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-input-button {
+            background: #e0e0e0;
+            color: #212121;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .file-input-button:hover {
+            background: #d4d4d8;
+        }
+
+        .file-input-wrapper input[type="file"] {
+            position: absolute;
+            left: -9999px;
+        }
+
+        .preview-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .preview-image {
+            position: relative;
+            width: 100%;
+            height: 120px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid #e0e0e0;
+        }
+
+        .preview-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .preview-image-remove {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            background: rgba(220, 38, 38, 0.9);
+            color: white;
+            border: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Results List */
+        .results-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .result-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .result-card:hover {
+            border-color: #2e7d32;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 16px;
+        }
+
+        .result-app-info {
+            flex: 1;
+        }
+
+        .result-app-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2e7d32;
+            margin-bottom: 6px;
+        }
+
+        .result-date {
+            font-size: 12px;
+            color: #757575;
+        }
+
+        .result-description {
+            background: #f8fafc;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #424242;
+            border-left: 4px solid #43a047;
+            margin-bottom: 16px;
+        }
+
+        .result-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 12px;
+        }
+
+        .result-image {
+            width: 100%;
+            height: 150px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 2px solid #e0e0e0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .result-image:hover {
+            transform: scale(1.05);
+            border-color: #2e7d32;
+        }
+
+        /* Loading & Empty States */
+        .loading, .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #e0e0e0;
+            border-top-color: #2e7d32;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .empty-icon {
+            font-size: 70px;
+            margin-bottom: 20px;
+            opacity: 0.4;
+        }
+
+        .empty-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #212121;
+            margin-bottom: 10px;
+        }
+
+        .empty-text {
+            font-size: 14px;
+            color: #757575;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 16px 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 3000;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast-success {
+            border-left: 4px solid #059669;
+        }
+
+        .toast-error {
+            border-left: 4px solid #dc2626;
+        }
+
+        .toast-icon {
+            font-size: 24px;
+        }
+
+        .toast-message {
+            font-size: 14px;
+            font-weight: 600;
+            color: #212121;
+        }
+
+        @media (max-width: 768px) {
+            .applications-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                margin: 20px;
+            }
+
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body><!-- Header -->
+  <header class="header">
+   <div class="header-content">
+    <div class="logo-section">
+     <div class="logo">
+      🛠️
+     </div>
+     <div class="brand-info">
+      <h1>Ijrochi Paneli</h1>
+      <div class="brand-tagline">
+       Murojatlarni boshqarish tizimi
+      </div>
+     </div>
+    </div>
+    <div class="user-info">
+     <div class="user-icon">
+      👤
+     </div>
+     <div class="user-details">
+      <div class="user-name" id="userName">
+       Ijrochi
+      </div>
+      <div class="user-role">
+       Executor
+      </div>
+     </div><button onclick="logout()" style="margin-left: 15px; padding: 8px 16px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: white; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'"> 🚪 Chiqish </button>
+    </div>
+   </div>
+  </header><!-- Main Container -->
+  <main class="main-container"><!-- Tabs -->
+   <div class="tabs-container"><button class="tab-button active" data-tab="applications"> 📋 Barcha murojatlar <span class="tab-count" id="countAll">0</span> </button> <button class="tab-button" data-tab="new"> 🆕 Yangi <span class="tab-count" id="countNew">0</span> </button> <button class="tab-button" data-tab="accepted"> 👁️ Qabul qilindi <span class="tab-count" id="countAccepted">0</span> </button> <button class="tab-button" data-tab="completed"> ✅ Tugatildi <span class="tab-count" id="countCompleted">0</span> </button> <button class="tab-button" data-tab="results"> 📊 Natijalar <span class="tab-count" id="countResults">0</span> </button>
+   </div><!-- Applications Content -->
+   <div id="applicationsContent" class="content-section active">
+    <div id="applicationsLoading" class="loading">
+     <div class="loading-spinner"></div>
+     <div class="empty-text">
+      Murojatlar yuklanmoqda...
+     </div>
+    </div>
+    <div id="applicationsGrid" class="applications-grid"></div>
+   </div><!-- New Content -->
+   <div id="newContent" class="content-section">
+    <div id="newGrid" class="applications-grid"></div>
+   </div><!-- Accepted Content -->
+   <div id="acceptedContent" class="content-section">
+    <div id="acceptedGrid" class="applications-grid"></div>
+   </div><!-- Completed Content -->
+   <div id="completedContent" class="content-section">
+    <div id="completedGrid" class="applications-grid"></div>
+   </div><!-- Results Content -->
+   <div id="resultsContent" class="content-section">
+    <div id="resultsLoading" class="loading" style="display: none;">
+     <div class="loading-spinner"></div>
+     <div class="empty-text">
+      Natijalar yuklanmoqda...
+     </div>
+    </div>
+    <div id="resultsList" class="results-list"></div>
+   </div>
+  </main><!-- Application Detail Modal -->
+  <div id="appModal" class="modal">
+   <div class="modal-content">
+    <div class="modal-header">
+     <h2 class="modal-title">Murojat tafsilotlari</h2><button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-actions" id="modalActions"></div>
+   </div>
+  </div><!-- Toast Notification -->
+  <div id="toast" class="toast"></div>
+  <script>
+        let allApplications = [];
+        let allResults = [];
+        let currentApplication = null;
+        let selectedImages = [];
+
+        const API_BASE = 'http://127.0.0.1:8000/api/v1/';
+
+        // Get JWT token from localStorage
+        function getAuthToken() {
+            return localStorage.getItem('access_token');
+        }
+
+        // Create headers with JWT token
+        function getAuthHeaders(includeContentType = true) {
+            const headers = {
+                'Authorization': `Bearer ${getAuthToken()}`
+            };
+            if (includeContentType) {
+                headers['Content-Type'] = 'application/json';
+            }
+            return headers;
+        }
+
+        // Handle authentication errors
+        function handleAuthError(error) {
+            console.error('Authentication error:', error);
+            localStorage.removeItem('access_token');
+            localStorage.removeItem('user_role');
+            localStorage.removeItem('user_name');
+            alert('Tizimga kirish muddati tugagan. Iltimos, qayta kiring.');
+            window.location.href = '/frontend/login.html';
+        }
+
+        // Logout function
+        function logout() {
+
+                localStorage.removeItem('access_token');
+                localStorage.removeItem('user_role');
+                localStorage.removeItem('user_name');
+                showToast('Tizimdan muvaffaqiyatli chiqdingiz', 'success');
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1000);
+
+        }
+
+        // Display user info
+        function displayUserInfo() {
+            const userName = localStorage.getItem('user_name');
+            if (userName) {
+                document.getElementById('userName').textContent = userName;
+            }
+        }
+
+        // Status translations
+        const statusTranslations = {
+            'NEW': 'Yangi',
+            'ASSIGNED': 'Tayinlangan',
+            'ACCEPTED': 'Qabul qilindi',
+            'DONE': 'Tugatildi',
+            'REJECTED': 'Rad etildi'
+        };
+
+        // Show toast notification
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.className = `toast toast-${type}`;
+            toast.innerHTML = `
+                <div class="toast-icon">${type === 'success' ? '✅' : '❌'}</div>
+                <div class="toast-message">${message}</div>
+            `;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        // Format date
+        function formatDate(dateString) {
+            if (!dateString) return 'Sana ko\'rsatilmagan';
+            const date = new Date(dateString);
+            return date.toLocaleDateString('uz-UZ', {
+                day: '2-digit',
+                month: 'long',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        // Load applications
+        async function loadApplications() {
+            try {
+                const response = await fetch(`${API_BASE}executor/applications/`, {
+                    headers: getAuthHeaders()
+                });
+
+                if (response.status === 401 || response.status === 403) {
+                    handleAuthError(new Error('Unauthorized'));
+                    return;
+                }
+
+                if (!response.ok) throw new Error('Ma\'lumotlarni yuklashda xatolik');
+
+                const data = await response.json();
+                allApplications = data;
+
+                updateCounts();
+                renderApplications();
+            } catch (error) {
+                console.error('Error loading applications:', error);
+                showToast('Murojatlarni yuklashda xatolik yuz berdi', 'error');
+            } finally {
+                document.getElementById('applicationsLoading').style.display = 'none';
+            }
+        }
+
+        // Load results
+        async function loadResults() {
+            try {
+                document.getElementById('resultsLoading').style.display = 'block';
+                const response = await fetch(`${API_BASE}results/`, {
+                    headers: getAuthHeaders()
+                });
+
+                if (response.status === 401 || response.status === 403) {
+                    handleAuthError(new Error('Unauthorized'));
+                    return;
+                }
+
+                if (!response.ok) throw new Error('Natijalarni yuklashda xatolik');
+
+                const data = await response.json();
+                allResults = data;
+
+                document.getElementById('countResults').textContent = data.length;
+                renderResults();
+            } catch (error) {
+                console.error('Error loading results:', error);
+                showToast('Natijalarni yuklashda xatolik yuz berdi', 'error');
+            } finally {
+                document.getElementById('resultsLoading').style.display = 'none';
+            }
+        }
+
+        // Update counts
+        function updateCounts() {
+            const newApps = allApplications.filter(app =>
+                ['NEW', 'ASSIGNED'].includes(app.status)
+            ).length;
+            const accepted = allApplications.filter(app => app.status === 'ACCEPTED').length;
+            const completed = allApplications.filter(app => app.status === 'DONE').length;
+
+            document.getElementById('countAll').textContent = allApplications.length;
+            document.getElementById('countNew').textContent = newApps;
+            document.getElementById('countAccepted').textContent = accepted;
+            document.getElementById('countCompleted').textContent = completed;
+        }
+
+        // Render applications
+        function renderApplications() {
+            const allApps = allApplications;
+            const newApps = allApplications.filter(app =>
+                ['NEW', 'ASSIGNED'].includes(app.status)
+            );
+            const acceptedApps = allApplications.filter(app => app.status === 'ACCEPTED');
+            const completedApps = allApplications.filter(app => app.status === 'DONE');
+
+            document.getElementById('applicationsGrid').innerHTML =
+                allApps.length ? allApps.map(createAppCard).join('') :
+                '<div class="empty-state"><div class="empty-icon">📭</div><div class="empty-title">Murojatlar yo\'q</div></div>';
+
+            document.getElementById('newGrid').innerHTML =
+                newApps.length ? newApps.map(createAppCard).join('') :
+                '<div class="empty-state"><div class="empty-icon">📭</div><div class="empty-title">Yangi murojatlar yo\'q</div></div>';
+
+            document.getElementById('acceptedGrid').innerHTML =
+                acceptedApps.length ? acceptedApps.map(createAppCard).join('') :
+                '<div class="empty-state"><div class="empty-icon">📭</div><div class="empty-title">Qabul qilingan murojatlar yo\'q</div></div>';
+
+            document.getElementById('completedGrid').innerHTML =
+                completedApps.length ? completedApps.map(createAppCard).join('') :
+                '<div class="empty-state"><div class="empty-icon">📭</div><div class="empty-title">Tugatilgan murojatlar yo\'q</div></div>';
+        }
+
+        // Create application card
+        function createAppCard(app) {
+            const statusClass = app.status.toLowerCase();
+            const statusText = statusTranslations[app.status] || app.status;
+
+            return `
+                <div class="app-card" onclick="viewApplication(${app.id})">
+                    <div class="app-card-header">
+                        <div class="app-status status-${statusClass}">
+                            ${getStatusIcon(app.status)} ${statusText}
+                        </div>
+                        <div class="app-name">${app.fullname}</div>
+                        <div class="app-date">📅 ${formatDate(app.created_at)}</div>
+                    </div>
+                    <div class="app-card-body">
+                        <div class="app-location">
+                            <div class="location-item">
+                                <div class="location-icon">📍</div>
+                                <div class="location-text">
+                                    <div class="location-label">Hudud</div>
+                                    <div class="location-value">${app.region_name || 'Ko\'rsatilmagan'}</div>
+                                </div>
+                            </div>
+                            ${app.district_name ? `
+                                <div class="location-item">
+                                    <div class="location-icon">🏘️</div>
+                                    <div class="location-text">
+                                        <div class="location-label">Tuman</div>
+                                        <div class="location-value">${app.district_name}</div>
+                                    </div>
+                                </div>
+                            ` : ''}
+                        </div>
+                        ${app.description ? `
+                            <div class="app-description">${app.description}</div>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Get status icon
+        function getStatusIcon(status) {
+            const icons = {
+                'NEW': '🆕',
+                'ASSIGNED': '📌',
+                'ACCEPTED': '👁️',
+                'DONE': '✅',
+                'REJECTED': '❌'
+            };
+            return icons[status] || '📋';
+        }
+
+        // View application
+        async function viewApplication(appId) {
+            const app = allApplications.find(a => a.id === appId);
+            if (!app) return;
+
+            currentApplication = app;
+
+            const modalBody = document.getElementById('modalBody');
+            modalBody.innerHTML = `
+                <div class="detail-section">
+                    <div class="detail-title">Umumiy ma'lumotlar</div>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <div class="detail-item-label">To'liq ism</div>
+                            <div class="detail-item-value">${app.fullname}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-item-label">Telefon</div>
+                            <div class="detail-item-value">${app.phone}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-item-label">Status</div>
+                            <div class="detail-item-value">${statusTranslations[app.status]}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-item-label">Sana</div>
+                            <div class="detail-item-value">${formatDate(app.created_at)}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <div class="detail-title">Manzil</div>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <div class="detail-item-label">Hudud</div>
+                            <div class="detail-item-value">${app.region_name || 'Ko\'rsatilmagan'}</div>
+                        </div>
+                        ${app.district_name ? `
+                            <div class="detail-item">
+                                <div class="detail-item-label">Tuman</div>
+                                <div class="detail-item-value">${app.district_name}</div>
+                            </div>
+                        ` : ''}
+                    </div>
+                </div>
+
+                ${app.description ? `
+                    <div class="detail-section">
+                        <div class="detail-title">Tavsif</div>
+                        <div class="detail-content">${app.description}</div>
+                    </div>
+                ` : ''}
+
+                ${app.image ? `
+                    <div class="detail-section">
+                        <div class="detail-title">Rasm</div>
+                        <img src="${app.image}" alt="Murojat rasmi" class="modal-image" onerror="this.style.display='none'">
+                    </div>
+                ` : ''}
+
+                <div id="resultFormContainer"></div>
+            `;
+
+            const modalActions = document.getElementById('modalActions');
+            modalActions.innerHTML = `
+                <button class="btn btn-map" onclick="openLocation(${app.latitude}, ${app.longitude})">
+                    📍 Lokatsiyani ko'rish
+                </button>
+                <button class="btn btn-telegram" onclick="shareToTelegram(${app.id})">
+                    ✈️ Telegramga yuborish
+                </button>
+                ${app.status === 'ACCEPTED' ? `
+                    <button class="btn btn-success" onclick="updateApplicationStatus(${app.id}, 'DONE')">
+                        ✅ Tugatildi deb belgilash
+                    </button>
+                ` : app.status !== 'DONE' ? `
+                    <button class="btn btn-primary" onclick="updateApplicationStatus(${app.id}, 'ACCEPTED')">
+                        👁️ Qabul qilish
+                    </button>
+                ` : ''}
+                ${app.status !== 'DONE' ? `
+                    <button class="btn btn-success" onclick="toggleResultForm()">
+                        ➕ Natija yaratish
+                    </button>
+                ` : ''}
+                <button class="btn btn-secondary" onclick="closeModal()">
+                    Yopish
+                </button>
+            `;
+
+            document.getElementById('appModal').classList.add('active');
+        }
+
+        // Toggle result form
+        function toggleResultForm() {
+            const container = document.getElementById('resultFormContainer');
+            const existing = container.querySelector('.result-form');
+
+            if (existing) {
+                existing.remove();
+                return;
+            }
+
+            container.innerHTML = `
+                <div class="result-form active">
+                    <h3 style="margin-bottom: 20px; color: #1e3a8a;">Natija yaratish</h3>
+                    <form id="resultForm" onsubmit="submitResult(event)">
+                        <div class="form-group">
+                            <label class="form-label" for="resultDescription">Natija tavsifi *</label>
+                            <textarea class="form-control" id="resultDescription" required
+                                placeholder="Natija haqida batafsil ma'lumot kiriting..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Rasmlar (bir nechta tanlash mumkin)</label>
+                            <div class="file-input-wrapper">
+                                <label class="file-input-button">
+                                    📸 Rasmlarni tanlang
+                                    <input type="file" id="resultImages" multiple accept="image/*" onchange="previewImages(event)">
+                                </label>
+                            </div>
+                            <div id="imagePreview" class="preview-images"></div>
+                        </div>
+                        <button type="submit" class="btn btn-success" style="width: 100%;">
+                            ✅ Natijani saqlash va tugatish
+                        </button>
+                    </form>
+                </div>
+            `;
+        }
+
+        // Preview images
+        function previewImages(event) {
+            selectedImages = Array.from(event.target.files);
+            const previewContainer = document.getElementById('imagePreview');
+            previewContainer.innerHTML = '';
+
+            selectedImages.forEach((file, index) => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const div = document.createElement('div');
+                    div.className = 'preview-image';
+                    div.innerHTML = `
+                        <img src="${e.target.result}" alt="Preview">
+                        <button type="button" class="preview-image-remove" onclick="removeImage(${index})">×</button>
+                    `;
+                    previewContainer.appendChild(div);
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        // Remove image
+        function removeImage(index) {
+            selectedImages.splice(index, 1);
+            const dataTransfer = new DataTransfer();
+            selectedImages.forEach(file => dataTransfer.items.add(file));
+            document.getElementById('resultImages').files = dataTransfer.files;
+            previewImages({ target: { files: dataTransfer.files } });
+        }
+
+        // Submit result
+        async function submitResult(event) {
+            event.preventDefault();
+
+            const description = document.getElementById('resultDescription').value;
+
+            if (!currentApplication) {
+                showToast('Xatolik yuz berdi', 'error');
+                return;
+            }
+
+            try {
+                // Create result
+                const resultData = {
+                    applications: currentApplication.id,
+                    description: description
+                };
+
+                const resultResponse = await fetch(`${API_BASE}result-images/`, {
+                    method: 'POST',
+                    headers: getAuthHeaders(),
+                    body: JSON.stringify(resultData)
+                });
+
+                if (resultResponse.status === 401 || resultResponse.status === 403) {
+                    handleAuthError(new Error('Unauthorized'));
+                    return;
+                }
+
+                if (!resultResponse.ok) throw new Error('Natija yaratishda xatolik');
+
+                const result = await resultResponse.json();
+
+                // Upload images
+                if (selectedImages.length > 0) {
+                    for (const image of selectedImages) {
+                        const formData = new FormData();
+                        formData.append('result', result.id);
+                        formData.append('image', image);
+
+                        const uploadResponse = await fetch(`${API_BASE}result-images/`, {
+                            method: 'POST',
+                            headers: {
+                                'Authorization': `Bearer ${getAuthToken()}`
+                            },
+                            body: formData
+                        });
+
+                        if (uploadResponse.status === 401 || uploadResponse.status === 403) {
+                            handleAuthError(new Error('Unauthorized'));
+                            return;
+                        }
+                    }
+                }
+
+                // Update application status to DONE
+                await updateApplicationStatus(currentApplication.id, 'DONE');
+
+                showToast('Natija muvaffaqiyatli saqlandi!', 'success');
+                closeModal();
+                loadApplications();
+                loadResults();
+            } catch (error) {
+                console.error('Error submitting result:', error);
+                showToast('Natijani saqlashda xatolik yuz berdi', 'error');
+            }
+        }
+
+        // Update application status
+        async function updateApplicationStatus(appId, status) {
+            try {
+                const response = await fetch(`${API_BASE}executor/applications/${appId}`, {
+                    method: 'PATCH',
+                    headers: getAuthHeaders(),
+                    body: JSON.stringify({ status: status })
+                });
+
+                if (response.status === 401 || response.status === 403) {
+                    handleAuthError(new Error('Unauthorized'));
+                    return;
+                }
+
+                if (!response.ok) throw new Error('Status yangilashda xatolik');
+
+                const updatedApp = await response.json();
+                const index = allApplications.findIndex(a => a.id === appId);
+                if (index !== -1) {
+                    allApplications[index] = updatedApp;
+                    updateCounts();
+                    renderApplications();
+                }
+
+                if (currentApplication && currentApplication.id === appId) {
+                    currentApplication = updatedApp;
+                }
+
+                const statusNames = {
+                    'ACCEPTED': 'qabul qilindi',
+                    'DONE': 'tugatildi'
+                };
+                showToast(`Murojat ${statusNames[status] || status}`, 'success');
+
+                // Refresh modal if it's open
+                if (document.getElementById('appModal').classList.contains('active')) {
+                    closeModal();
+                    setTimeout(() => viewApplication(appId), 300);
+                }
+            } catch (error) {
+                console.error('Error updating status:', error);
+                showToast('Status yangilashda xatolik yuz berdi', 'error');
+            }
+        }
+
+        // Open location in Google Maps
+        function openLocation(lat, lon) {
+            if (!lat || !lon) {
+                showToast('Lokatsiya ma\'lumotlari mavjud emas', 'error');
+                return;
+            }
+            window.open(`https://www.google.com/maps?q=${lat},${lon}`, '_blank', 'noopener,noreferrer');
+        }
+
+        // Share to Telegram
+        function shareToTelegram(appId) {
+            const app = allApplications.find(a => a.id === appId);
+            if (!app) {
+                showToast('Murojat topilmadi', 'error');
+                return;
+            }
+
+            // Create Google Maps location link
+            const locationLink = `https://www.google.com/maps?q=${app.latitude},${app.longitude}`;
+
+            // Prepare message text with proper encoding for Telegram
+            let messageText = `📋 Yangi murojat%0A%0A`;
+            messageText += `👤 Ism: ${app.fullname}%0A`;
+            messageText += `📞 Telefon: ${app.phone}%0A`;
+            messageText += `📍 Hudud: ${app.region_name || 'Ko\'rsatilmagan'}%0A`;
+            if (app.district_name) {
+                messageText += `🏘️ Tuman: ${app.district_name}%0A`;
+            }
+            if (app.description) {
+                messageText += `%0A📝 Tavsif:%0A${encodeURIComponent(app.description)}%0A`;
+            }
+            messageText += `%0A📍 Lokatsiya:%0A${locationLink}`;
+
+            // Create Telegram URL that opens the app directly with pre-filled message
+            const telegramUrl = `tg://msg?text=${messageText}`;
+
+            // Try to open Telegram app directly
+            window.location.href = telegramUrl;
+
+            // Fallback to web version after a short delay if app doesn't open
+            setTimeout(() => {
+                const webTelegramUrl = `https://t.me/share/url?url=${encodeURIComponent(locationLink)}&text=${encodeURIComponent(messageText.replace(/%0A/g, '\n'))}`;
+                window.open(webTelegramUrl, '_blank', 'noopener,noreferrer');
+            }, 1000);
+        }
+
+        // Render results
+        function renderResults() {
+            const container = document.getElementById('resultsList');
+
+            if (allResults.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">📊</div>
+                        <div class="empty-title">Natijalar yo'q</div>
+                        <div class="empty-text">Hali hech qanday natija yaratilmagan</div>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = allResults.map(result => {
+                const app = allApplications.find(a => a.id === result.applications);
+                return `
+                    <div class="result-card">
+                        <div class="result-header">
+                            <div class="result-app-info">
+                                <div class="result-app-name">${app ? app.fullname : 'Noma\'lum'}</div>
+                                <div class="result-date">📅 ${formatDate(result.created_at)}</div>
+                            </div>
+                        </div>
+                        ${result.description ? `
+                            <div class="result-description">
+                                <strong>Natija:</strong> ${result.description}
+                            </div>
+                        ` : ''}
+                        ${result.images && result.images.length > 0 ? `
+                            <div class="result-images">
+                                ${result.images.map(img => `
+                                    <img src="${img.image}" alt="Natija rasmi" class="result-image"
+                                        onclick="window.open('${img.image}', '_blank')" loading="lazy"
+                                        onerror="this.style.display='none'">
+                                `).join('')}
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('appModal').classList.remove('active');
+            currentApplication = null;
+            selectedImages = [];
+        }
+
+        // Tab switching
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const tab = button.dataset.tab;
+
+                document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+                button.classList.add('active');
+
+                document.querySelectorAll('.content-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                if (tab === 'applications') {
+                    document.getElementById('applicationsContent').classList.add('active');
+                } else if (tab === 'new') {
+                    document.getElementById('newContent').classList.add('active');
+                } else if (tab === 'accepted') {
+                    document.getElementById('acceptedContent').classList.add('active');
+                } else if (tab === 'completed') {
+                    document.getElementById('completedContent').classList.add('active');
+                } else if (tab === 'results') {
+                    document.getElementById('resultsContent').classList.add('active');
+                    if (allResults.length === 0) loadResults();
+                }
+            });
+        });
+
+        // Close modal on outside click
+        document.getElementById('appModal').addEventListener('click', (e) => {
+            if (e.target.id === 'appModal') closeModal();
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Display user information
+            displayUserInfo();
+
+            // Load data
+            loadApplications();
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c766d121339973b',t:'MTc3MDAwMTA5OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+

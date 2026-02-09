@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.admin import ModelAdmin
 from django.utils.safestring import mark_safe
 
-from applications.models import Application, District, Region
+from applications.models import Application, District, Region, Highlight, Result
 
 
 # Register your models here.
@@ -10,7 +10,8 @@ from applications.models import Application, District, Region
 
 @admin.register(Application)
 class ApplicationAdmin(ModelAdmin):
-    list_display = ('image_tag', 'region', 'district', 'location')
+    list_display = ('id', 'image_tag', 'region', 'district', 'location')
+    list_display_links = ('id', 'region')
 
     def location(self, obj):
         if obj.latitude and obj.longitude:
@@ -28,4 +29,19 @@ class RegionAdmin(ModelAdmin):
 
 @admin.register(District)
 class DistrictAdmin(ModelAdmin):
-    list_display = ('id', 'name','region')
+    list_display = ('id', 'name', 'region')
+
+
+@admin.register(Highlight)
+class HighlightAdmin(ModelAdmin):
+    list_display = ('id', 'name', 'image')
+
+
+@admin.register(Result)
+class ResultAdmin(ModelAdmin):
+    list_display = ('id', 'application', 'description')
+
+#
+# @admin.register(Image)
+# class ImageAdmin(ModelAdmin):
+#     list_display = ('id', 'result', 'image')

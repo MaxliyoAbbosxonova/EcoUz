@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="uz" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Murojaat Yuborish - EkoUz</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+            <link rel="stylesheet" href="css/create.css">
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full">
+  <div style="width: 100%; height: 100%; overflow: auto; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);"><!-- Header -->
+   <header class="header">
+    <div class="header-content">
+     <div class="logo-section">
+      <div class="logo">
+       🌿
+      </div>
+      <div class="brand-info">
+       <h1 id="headerTitle">EkoUz</h1>
+       <div class="brand-tagline" id="headerTagline">
+        Ekologik muammolarni hal qilish platformasi
+       </div>
+      </div>
+     </div><a href="index.html" class="back-button" id="backButton">← Bosh sahifa</a>
+    </div>
+   </header><!-- Main Container -->
+   <main class="main-container">
+    <div class="form-card">
+     <div class="form-header">
+      <div class="form-icon">
+       📝
+      </div>
+      <h2 class="form-title" id="formTitle">Murojaat Yuborish</h2>
+      <p class="form-subtitle" id="formSubtitle">Ekologik muammo haqida batafsil ma'lumot bering. Biz tez orada ko'rib chiqamiz.</p>
+     </div>
+     <div id="errorMessage" class="error-message">
+      <div class="error-text" id="errorText"></div>
+     </div>
+     <form id="applicationForm">
+      <div class="form-grid"><!-- Full Name -->
+       <div class="form-group"><label for="fullname" class="form-label"> <span class="label-icon">👤</span> <span id="fullnameLabel">To'liq ism</span> <span class="required">*</span> </label> <input type="text" id="fullname" name="fullname" class="form-input" placeholder="Ismingizni kiriting" required>
+       </div><!-- Phone -->
+       <div class="form-group"><label for="phone" class="form-label"> <span class="label-icon">📱</span> <span id="phoneLabel">Telefon raqam</span> <span class="required">*</span> </label> <input type="tel" id="phone" name="phone" class="form-input" placeholder="+998 90 123 45 67" required>
+       </div><!-- Region -->
+       <div class="form-group"><label for="region" class="form-label"> <span class="label-icon">🏙️</span> <span id="regionLabel">Viloyat</span> <span class="required">*</span> </label> <select id="region" name="region" class="form-select" required> <option value="">Viloyatni tanlang</option> </select>
+       </div><!-- District -->
+       <div class="form-group"><label for="district" class="form-label"> <span class="label-icon">🏘️</span> <span id="districtLabel">Tuman</span> </label> <select id="district" name="district" class="form-select" disabled> <option value="">Avval viloyatni tanlang</option> </select>
+       </div><!-- Description -->
+       <div class="form-group full-width"><label for="description" class="form-label"> <span class="label-icon">📄</span> <span id="descriptionLabel">Muammo tavsifi</span> </label> <textarea id="description" name="description" class="form-textarea" placeholder="Muammo haqida batafsil yozing..."></textarea>
+       </div><!-- Image Upload -->
+       <div class="form-group full-width"><label class="form-label"> <span class="label-icon">📷</span> <span id="imageLabel">Rasm yuklash</span> </label>
+        <div class="file-upload-area" id="fileUploadArea">
+         <div class="upload-icon">
+          📁
+         </div>
+         <div class="upload-text" id="uploadText">
+          Rasm yuklash uchun bosing yoki sudrab olib keling
+         </div>
+         <div class="upload-hint" id="uploadHint">
+          JPG, PNG (maksimal 5MB)
+         </div><input type="file" id="imageFile" name="image" class="file-input" accept=".jpg,.jpeg,.png">
+        </div>
+        <div id="imagePreview" class="image-preview">
+         <div class="preview-container"><img id="previewImage" class="preview-image" alt="Preview"> <button type="button" class="remove-image" id="removeImage">×</button>
+         </div>
+        </div>
+       </div><!-- Map Location -->
+       <div class="form-group full-width"><label class="form-label"> <span class="label-icon">📍</span> <span id="locationLabel">Joylashuv</span> <span class="required">*</span> </label>
+        <div class="map-container" id="mapContainer">
+         <div class="map-placeholder">
+          <div class="map-icon">
+           🗺️
+          </div>
+          <div class="map-text" id="mapText">
+           Xaritada joyni belgilang
+          </div>
+          <div class="map-hint" id="mapHint">
+           Xaritani bosing yoki geolokatsiyadan foydalaning
+          </div>
+         </div>
+        </div>
+        <div id="coordinatesDisplay" class="coordinates-display">
+         <div class="coordinates-text">
+          📍 <span id="coordinatesText">Koordinatalar: ---</span>
+         </div>
+        </div><input type="hidden" id="latitude" name="latitude"> <input type="hidden" id="longitude" name="longitude">
+       </div>
+      </div><!-- Submit Button --> <button type="submit" class="submit-button" id="submitButton"> <span id="submitButtonText">📤 Murojaat Yuborish</span> </button>
+     </form>
+    </div>
+   </main><!-- Success Modal -->
+  <div id="successModal" class="success-modal">
+    <div class="success-content">
+        <div class="success-icon">✅</div>
+        <h3 class="success-title" id="successTitle">Muvaffaqiyatli yuborildi!</h3>
+        <p class="success-message" id="successMessage">Murojaatingiz qabul qilindi. Tez orada ko'rib chiqamiz va sizga xabar beramiz.</p>
+        <button class="success-button" id="closeSuccessModal">Yaxshi</button>
+    </div>
+</div><!-- Loading Overlay -->
+   <div id="loadingOverlay" class="loading-overlay">
+    <div class="loading-content">
+     <div class="loading-spinner"></div>
+     <div class="loading-text" id="loadingText">
+      Yuklanmoqda...
+     </div>
+    </div>
+   </div><!-- Footer -->
+   <footer class="footer">
+    <p class="footer-text">© 2024 EkoUz. Barcha huquqlar himoyalangan.</p>
+   </footer>
+  </div>
+  <script src="js/create.js"></script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b3f038942cf3649',t:'MTc2NjczNTcwNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+

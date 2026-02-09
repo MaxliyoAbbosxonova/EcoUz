@@ -1,0 +1,107 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-30 09:45+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: apps/applications/models.py:26 apps/applications/models.py:87
+#: apps/applications/models.py:115
+msgid "Rasm"
+msgstr "Rasm"
+
+#: apps/applications/models.py:29
+msgid "To`liq ism"
+msgstr "To`liq ism"
+
+#: apps/applications/models.py:30 apps/users/models/users.py:17
+msgid "Telefon raqam"
+msgstr "Telefon raqam"
+
+#: apps/applications/models.py:32 apps/applications/models.py:94
+msgid "Viloyat"
+msgstr "Viloyat"
+
+#: apps/applications/models.py:33 apps/applications/models.py:106
+#: apps/applications/models.py:107
+msgid "Tuman"
+msgstr "Tuman"
+
+#: apps/applications/models.py:34
+msgid "Tafsif"
+msgstr "Tafsif"
+
+#: apps/applications/models.py:35
+msgid "Latitude"
+msgstr "Geografik kenglik"
+
+#: apps/applications/models.py:36
+msgid "Longitude"
+msgstr "Geografik uzunlik"
+
+#: apps/applications/models.py:37
+msgid "Status"
+msgstr "Holati"
+
+#: apps/applications/models.py:39
+msgid "Mas’ul ijrochi"
+msgstr "Mas’ul ijrochi"
+
+#: apps/applications/models.py:57
+msgid "Murojaat"
+msgstr "Murojaat"
+
+#: apps/applications/models.py:58
+msgid "Murojaatlar"
+msgstr "Murojaatlar"
+
+#: apps/applications/models.py:62
+msgid "Tavsif"
+msgstr "Tavsif"
+
+#: apps/applications/models.py:64
+msgid "Natija"
+msgstr "Natija"
+
+#: apps/applications/models.py:65
+msgid "Natijalar"
+msgstr "Natijalar"
+
+#: apps/applications/models.py:88
+msgid "Rasmlar"
+msgstr "Rasmlar"
+
+#: apps/applications/models.py:91 apps/applications/models.py:102
+#: apps/applications/models.py:114
+msgid "Nomi"
+msgstr "Nomi"
+
+#: apps/applications/models.py:95
+msgid "Viloyatlar"
+msgstr "Viloyatlar"
+
+#: apps/applications/models.py:121
+msgid "Banner"
+msgstr "Banner"
+
+#: apps/applications/models.py:122
+msgid "Bannerlar"
+msgstr "Bannerlar"
+
+#, fuzzy
+#~| msgid "Nomi"
+#~ msgid "Nom"
+#~ msgstr "Nomi"
